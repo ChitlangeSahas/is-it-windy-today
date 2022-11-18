@@ -1,12 +1,15 @@
 import React from 'react';
 import './App.css';
+import { CssVarsProvider } from '@mui/joy/styles';
+import Box from '@mui/joy/Box';
+import Typography from '@mui/joy/Typography';
 
-function App() {
-  return (
-    <div>
-        App is running
-    </div>
-  );
+export default function App() {
+    return (
+        <CssVarsProvider>
+            <Box sx={{display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh'}}>
+                <Typography level={"h1"}>Hi 👋</Typography>
+            </Box>
+        </CssVarsProvider>
+    );
 }
-
-export default App;
