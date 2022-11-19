@@ -11,5 +11,11 @@
 
 .container {
     display: flex;
-    margin-top: 0.5em;
+}
+
+.root {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
 }

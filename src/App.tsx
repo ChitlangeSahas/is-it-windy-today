@@ -65,13 +65,7 @@ export default function App() {
   return (
     <CssVarsProvider>
       <Box
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          alignContent: "center",
-          height: "100vh",
-        }}
+        className={"root"}
       >
         {dataHasLoaded ? (
           <div className={"container"}>
