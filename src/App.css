@@ -14,8 +14,10 @@
 }
 
 .root {
+    padding: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    height: fit-content;
+    min-height: 100vh;
 }
