@@ -76,6 +76,7 @@ export default function App() {
               <ForecastTrendsSection
                 forecastByHour={forecastByHour}
                 temperatureTrendData={getTemperatureTrendData()}
+                currentForecastBeingViewed={hourToDisplay}
               />
             </div>
 
@@ -83,7 +84,7 @@ export default function App() {
               <IconButton
                 onClick={incrementHour}
                 variant={"solid"}
-                disabled={hourToDisplay > 23}
+                disabled={hourToDisplay >= 23}
               >
                 <ArrowForwardIcon />
               </IconButton>

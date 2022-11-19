@@ -5,15 +5,19 @@ import { WindTrend } from "./types/Types";
 
 type WindDirectionTileProps = {
   trend: WindTrend;
+  isViewing: boolean
 };
 const WindDirectionTile = (props: WindDirectionTileProps) => {
-  const { trend } = props;
+  const { trend , isViewing} = props;
   return (
     <div
       style={{
         display: "inline-flex",
         flexDirection: "column",
         alignItems: "center",
+        outline: isViewing ? 'gray dashed 1px' : 'none',
+        borderRadius: '4px',
+        paddingBottom: '2px'
       }}
     >
       <CompassDirection direction={trend.windDirection} />

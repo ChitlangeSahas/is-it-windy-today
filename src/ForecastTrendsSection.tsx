@@ -18,13 +18,14 @@ import { format } from "date-fns";
 type ForecastTrendsSectionProps = {
   forecastByHour: Forecast[];
   temperatureTrendData: TempTrend[];
+  currentForecastBeingViewed: number;
 };
 
 const ForecastTrendsSection = (props: ForecastTrendsSectionProps) => {
   const [displayTwentyFourHourWind, setDisplayTwentyFourHourWind] =
     useState(false);
 
-  const { forecastByHour, temperatureTrendData } = props;
+  const { forecastByHour, temperatureTrendData, currentForecastBeingViewed } = props;
 
   const getWindTrendData = () => {
     return forecastByHour.map((forecast) => {
@@ -44,8 +45,8 @@ const ForecastTrendsSection = (props: ForecastTrendsSectionProps) => {
       <div>
         {getWindTrendData()
           .slice(0, 12)
-          .map((trend: any) => {
-            return <WindDirectionTile trend={trend} key={trend.name} />;
+          .map((trend: any, index) => {
+            return <WindDirectionTile trend={trend} key={trend.name} isViewing={currentForecastBeingViewed === index}/>;
           })}
       </div>
 
@@ -60,9 +61,9 @@ const ForecastTrendsSection = (props: ForecastTrendsSectionProps) => {
       {displayTwentyFourHourWind && (
         <div className={"wind-trend-12h"}>
           {getWindTrendData()
-            .slice(13, 25)
-            .map((trend: any) => {
-              return <WindDirectionTile trend={trend} key={trend.name} />;
+            .slice(12, 24)
+            .map((trend: any, index) => {
+              return <WindDirectionTile trend={trend} key={trend.name} isViewing={currentForecastBeingViewed === index+12}/>;
             })}
         </div>
       )}
