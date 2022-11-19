@@ -13,7 +13,7 @@ import {
 import React, { useState } from "react";
 import { Forecast, TempTrend } from "./Types";
 import "./ForecastTrendsSection.css";
-import {format} from 'date-fns'
+import { format } from "date-fns";
 
 type ForecastTrendsSectionProps = {
   forecastByHour: Forecast[];
@@ -67,7 +67,7 @@ const ForecastTrendsSection = (props: ForecastTrendsSectionProps) => {
         </div>
       )}
 
-      <Typography sx={{ mt: 1 }} fontSize={"lg"}>
+      <Typography sx={{ mt: 2 }} fontSize={"lg"}>
         Temperature trend (24h)
       </Typography>
 

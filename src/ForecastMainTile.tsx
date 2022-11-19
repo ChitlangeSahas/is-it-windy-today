@@ -27,7 +27,9 @@ const ForecastMainTile = (props: ForecastMainTileProps) => {
     <Card variant={"outlined"} className="per-hour-forecast-card">
       <div style={{ display: "flex", justifyContent: "space-between" }}>
         <div>
-          <Typography fontSize={"lg"} fontWeight={"bold"}>Tyson's Corner</Typography>
+          <Typography fontSize={"lg"} fontWeight={"bold"}>
+            Tyson's Corner
+          </Typography>
           <Typography fontSize={"lg"} fontWeight={"bold"}>
             {`${relativeTimeString
               .charAt(0)
@@ -68,9 +70,7 @@ const ForecastMainTile = (props: ForecastMainTileProps) => {
         </div>
       </div>
 
-      <div
-        className="wind-forecast-information"
-      >
+      <div className="wind-forecast-information">
         <div>
           <CompassDirection direction={forecast.windDirection as Direction} />
           <Typography level="h2">{forecast.windDirection}</Typography>

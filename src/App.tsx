@@ -65,9 +65,7 @@ export default function App() {
 
   return (
     <CssVarsProvider>
-      <Box
-        className={"root"}
-      >
+      <Box className={"root"}>
         {dataHasLoaded ? (
           <div className={"container"}>
             <div className="back-button">
