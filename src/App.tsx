@@ -23,6 +23,7 @@ export default function App() {
   };
   useEffect(() => {
     getForecastData();
+    console.log("Fetching data")
   }, []);
 
   // +1 h = index 0

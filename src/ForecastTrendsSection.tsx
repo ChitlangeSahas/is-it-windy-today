@@ -14,6 +14,7 @@ import React, { useState } from "react";
 import { Forecast, TempTrend } from "./types/Types";
 import "./ForecastTrendsSection.css";
 import { format } from "date-fns";
+import TemperatureTrendChart from "./TemperatureTrendChart";
 
 type ForecastTrendsSectionProps = {
   forecastByHour: Forecast[];
@@ -72,24 +73,8 @@ const ForecastTrendsSection = (props: ForecastTrendsSectionProps) => {
         Temperature trend (24h)
       </Typography>
 
-      <LineChart
-        width={850}
-        height={200}
-        data={temperatureTrendData}
-        margin={{
-          top: 30,
-          right: 30,
-          bottom: 5,
-        }}
-      >
-        <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="name" />
-        <YAxis />
-        <Tooltip />
-        <Legend />
-        <Line type="monotone" dataKey="temp" stroke="green" />
-        <Line type="monotone" dataKey="delta" stroke="orange" />
-      </LineChart>
+
+      <TemperatureTrendChart temperatureTrendData={temperatureTrendData}/>
     </Card>
   );
 };
