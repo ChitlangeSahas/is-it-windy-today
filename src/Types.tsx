@@ -25,3 +25,9 @@ export type WindTrend = {
   windSpeed: string;
   windDirection: Direction;
 };
+
+export type TempTrend = {
+  name: string;
+  temp: number;
+  delta: number;
+};

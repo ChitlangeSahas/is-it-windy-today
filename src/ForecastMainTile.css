@@ -1,0 +1,11 @@
+.per-hour-forecast-card{
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+    padding-bottom: 20px !important;
+}
+
+
+.reset-button{
+    width: fit-content;
+    align-self: flex-end;
+}

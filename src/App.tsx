@@ -4,10 +4,22 @@ import { CssVarsProvider } from "@mui/joy/styles";
 import Box from "@mui/joy/Box";
 import axios from "axios";
 import ForecastMainTile from "./ForecastMainTile";
-import { CircularProgress, IconButton } from "@mui/joy";
+import { CircularProgress, IconButton, Link } from "@mui/joy";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import { Forecast } from "./Types";
+import { Forecast, TempTrend } from "./Types";
+import Typography from "@mui/joy/Typography";
+import WindDirectionTile from "./WindDirectionTile";
+import {
+  CartesianGrid,
+  Legend,
+  Line,
+  LineChart,
+  Tooltip,
+  XAxis,
+  YAxis,
+} from "recharts";
+import ForecastTrendsSection from "./ForecastTrendsSection";
 
 export default function App() {
   const [dataHasLoaded, setDataHasLoaded] = useState(false);
@@ -42,17 +54,7 @@ export default function App() {
         temp: forecast.temperature,
         delta:
           index === 0 ? 0 : forecast.temperature - self[index - 1].temperature,
-      };
-    });
-  };
-
-  const getWindTrendData = () => {
-    return forecastByHour.map((forecast) => {
-      return {
-        name: `${forecast.number}h`,
-        windSpeed: forecast.windSpeed,
-        windDirection: forecast.windDirection,
-      };
+      } as TempTrend;
     });
   };
 
@@ -82,12 +84,18 @@ export default function App() {
                 <ArrowBackIcon />
               </IconButton>
             </div>
-            <ForecastMainTile
-              forecast={forecastByHour[hourToDisplay]}
-              oneDayTempTrendData={getTemperatureTrendData()}
-              oneDayWindTrendData={getWindTrendData()}
-              onReset={resetViewToCurrentHour}
-            />
+            <div>
+              <ForecastMainTile
+                forecast={forecastByHour[hourToDisplay]}
+                onReset={resetViewToCurrentHour}
+                oneDayTempTrendData={getTemperatureTrendData()}
+              />
+
+              <ForecastTrendsSection
+                forecastByHour={forecastByHour}
+                temperatureTrendData={getTemperatureTrendData()}
+              />
+            </div>
 
             <div className="forward-button">
               <IconButton
