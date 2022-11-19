@@ -1,11 +1,9 @@
 import {Forecast} from "./App";
 import React, {useState} from "react";
-import {Button, Card, Divider, Link} from "@mui/joy";
+import {Card, Divider, Link} from "@mui/joy";
 import Typography from "@mui/joy/Typography";
 import CompassDirection, {Direction} from "./CompassDirection";
 import {CartesianGrid, Legend, Line, LineChart, Tooltip, XAxis, YAxis} from "recharts";
-import {Icon} from "@mui/material";
-import {WiDirectionDown, WiDirectionUp} from "react-icons/wi";
 
 type ForecastMainTileProps = {
     forecast: Forecast
