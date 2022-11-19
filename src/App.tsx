@@ -46,10 +46,11 @@ export default function App() {
 
     const getTemperatureTrendData = () => {
         // Probably best to not tie data structure to the chart needs, but it's okay for now :)
-       return forecastByHour.slice(0,23).map(forecast => {
+       return forecastByHour.slice(0,23).map((forecast, index, self) => {
            return {
                name: `${forecast.number}h`,
-               temp: forecast.temperature
+               temp: forecast.temperature,
+               delta: index === 0 ? 0 : forecast.temperature - self[index - 1].temperature
            }
        })
     }

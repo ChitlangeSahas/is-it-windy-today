@@ -16,17 +16,7 @@ const ForecastMainTile = (props: ForecastMainTileProps) => {
     const [displayTwentyFourHourWind, setDisplayTwentyFourHourWind] = useState(false)
 
 
-    const temperatures = oneDayTempTrendData.map((trend: any) => trend.temp)
-
-    const deltaTemperatures = temperatures.map((temp: number, index: number, self: []) => {
-        if (index === 0) {
-            return 0
-        }
-
-        return temp - self[index - 1]
-    })
-
-    console.log(deltaTemperatures)
+    const deltaTemperatureForCurrentView = oneDayTempTrendData[forecast.number - 1].delta
     return <>
         <Card variant={"outlined"}>
             <div style={{display: 'flex', justifyContent: 'space-between'}}>
@@ -41,10 +31,10 @@ const ForecastMainTile = (props: ForecastMainTileProps) => {
                 <div>
                     <Typography level="h2">
                         <span>{forecast.temperature}{'° '}{forecast.temperatureUnit}{' '}</span>
-                        {deltaTemperatures[forecast.number - 1] !== 0 &&
+                        {deltaTemperatureForCurrentView !== 0 &&
                             <div style={{display: 'inline-flex', flexDirection: 'column', alignItems: 'center'}}>
                                 <Typography fontSize={"medium"}
-                                            color={"info"}><span>{deltaTemperatures[forecast.number - 1]}</span></Typography>
+                                            color={deltaTemperatureForCurrentView > 0 ? 'success' : 'danger'}><span>{deltaTemperatureForCurrentView > 0 ? `+${deltaTemperatureForCurrentView}` : deltaTemperatureForCurrentView}</span></Typography>
                             </div>}
                     </Typography>
 
@@ -120,8 +110,8 @@ const ForecastMainTile = (props: ForecastMainTileProps) => {
                 <Tooltip/>
                 <Legend/>
                 <Line type="monotone" dataKey="temp" stroke="green"/>
+                <Line type="monotone" dataKey="delta" stroke="orange"/>
             </LineChart>
-
 
         </Card>
     </>
