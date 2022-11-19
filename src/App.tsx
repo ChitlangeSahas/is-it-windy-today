@@ -4,14 +4,14 @@ import { CssVarsProvider } from "@mui/joy/styles";
 import Box from "@mui/joy/Box";
 import axios from "axios";
 import ForecastMainTile from "./ForecastMainTile";
-import { IconButton } from "@mui/joy";
+import { CircularProgress, IconButton } from "@mui/joy";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { Forecast } from "./Types";
 
 export default function App() {
   const [dataHasLoaded, setDataHasLoaded] = useState(false);
-  const getForcastData = () => {
+  const getForecastData = () => {
     axios
       .get("https://api.weather.gov/gridpoints/LWX/89,70/forecast/hourly")
       .then((response) => {
@@ -20,7 +20,7 @@ export default function App() {
       });
   };
   useEffect(() => {
-    getForcastData();
+    getForecastData();
   }, []);
 
   // +1 h = index 0
@@ -68,30 +68,32 @@ export default function App() {
           height: "100vh",
         }}
       >
-        <div className={"container"}>
-          <div className="back-button">
-            <IconButton
-              onClick={decrementHour}
-              variant={"solid"}
-              disabled={hourToDisplay === 0}
-            >
-              <ArrowBackIcon />
-            </IconButton>
-          </div>
-          {dataHasLoaded && (
+        {dataHasLoaded ? (
+          <div className={"container"}>
+            <div className="back-button">
+              <IconButton
+                onClick={decrementHour}
+                variant={"solid"}
+                disabled={hourToDisplay === 0}
+              >
+                <ArrowBackIcon />
+              </IconButton>
+            </div>
             <ForecastMainTile
               forecast={forecastByHour[hourToDisplay]}
               oneDayTempTrendData={getTemperatureTrendData()}
               oneDayWindTrendData={getWindTrendData()}
             />
-          )}
 
-          <div className="forward-button">
-            <IconButton onClick={incrementHour} variant={"solid"}>
-              <ArrowForwardIcon />
-            </IconButton>
+            <div className="forward-button">
+              <IconButton onClick={incrementHour} variant={"solid"}>
+                <ArrowForwardIcon />
+              </IconButton>
+            </div>
           </div>
-        </div>
+        ) : (
+          <CircularProgress />
+        )}
       </Box>
     </CssVarsProvider>
   );
