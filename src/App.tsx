@@ -20,6 +20,7 @@ import {
   YAxis,
 } from "recharts";
 import ForecastTrendsSection from "./ForecastTrendsSection";
+import { format } from "date-fns";
 
 export default function App() {
   const [dataHasLoaded, setDataHasLoaded] = useState(false);
@@ -50,7 +51,7 @@ export default function App() {
     // Probably best to not tie data structure to the chart needs, but it's okay for now :)
     return forecastByHour.slice(0, 25).map((forecast, index, self) => {
       return {
-        name: `${forecast.number}h`,
+        name: `${format(new Date(forecast.startTime), "h a")}`,
         temp: forecast.temperature,
         delta:
           index === 0 ? 0 : forecast.temperature - self[index - 1].temperature,

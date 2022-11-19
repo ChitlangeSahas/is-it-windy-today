@@ -18,6 +18,7 @@ const WindDirectionTile = (props: WindDirectionTileProps) => {
     >
       <CompassDirection direction={trend.windDirection} />
       <Typography color={"info"}>{trend.windSpeed}</Typography>
+      <Typography fontSize={"small"}>{trend.name}</Typography>
     </div>
   );
 };

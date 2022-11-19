@@ -13,6 +13,7 @@ import {
 import React, { useState } from "react";
 import { Forecast, TempTrend } from "./Types";
 import "./ForecastTrendsSection.css";
+import {format} from 'date-fns'
 
 type ForecastTrendsSectionProps = {
   forecastByHour: Forecast[];
@@ -28,7 +29,7 @@ const ForecastTrendsSection = (props: ForecastTrendsSectionProps) => {
   const getWindTrendData = () => {
     return forecastByHour.map((forecast) => {
       return {
-        name: `${forecast.number}h`,
+        name: `${format(new Date(forecast.startTime), "h a")}`,
         windSpeed: forecast.windSpeed,
         windDirection: forecast.windDirection,
       };
@@ -57,7 +58,7 @@ const ForecastTrendsSection = (props: ForecastTrendsSectionProps) => {
         </Link>
       )}
       {displayTwentyFourHourWind && (
-        <div>
+        <div className={"wind-trend-12h"}>
           {getWindTrendData()
             .slice(13, 25)
             .map((trend: any) => {
