@@ -1,9 +1,9 @@
-import { Forecast, TempTrend } from "./Types";
+import { Forecast, TempTrend } from "./types/Types";
 import React from "react";
 import { Button, Card } from "@mui/joy";
 import Typography from "@mui/joy/Typography";
 import CompassDirection from "./CompassDirection";
-import { Direction } from "./Types";
+import { Direction } from "./types/Types";
 import { formatRelative } from "date-fns";
 import "./ForecastMainTile.css";
 

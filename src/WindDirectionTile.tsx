@@ -1,7 +1,7 @@
 import CompassDirection from "./CompassDirection";
 import Typography from "@mui/joy/Typography";
 import React from "react";
-import { WindTrend } from "./Types";
+import { WindTrend } from "./types/Types";
 
 type WindDirectionTileProps = {
   trend: WindTrend;

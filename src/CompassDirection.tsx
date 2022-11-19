@@ -1,5 +1,5 @@
 import { WiDirectionUp } from "react-icons/wi";
-import { Direction } from "./Types";
+import { Direction } from "./types/Types";
 
 type CompassDirectionProps = {
   direction: Direction;

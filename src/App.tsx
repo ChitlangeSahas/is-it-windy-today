@@ -7,18 +7,7 @@ import ForecastMainTile from "./ForecastMainTile";
 import { CircularProgress, IconButton, Link } from "@mui/joy";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import { Forecast, TempTrend } from "./Types";
-import Typography from "@mui/joy/Typography";
-import WindDirectionTile from "./WindDirectionTile";
-import {
-  CartesianGrid,
-  Legend,
-  Line,
-  LineChart,
-  Tooltip,
-  XAxis,
-  YAxis,
-} from "recharts";
+import { Forecast, TempTrend } from "./types/Types";
 import ForecastTrendsSection from "./ForecastTrendsSection";
 import { format } from "date-fns";
 

@@ -11,7 +11,7 @@ import {
   YAxis,
 } from "recharts";
 import React, { useState } from "react";
-import { Forecast, TempTrend } from "./Types";
+import { Forecast, TempTrend } from "./types/Types";
 import "./ForecastTrendsSection.css";
 import { format } from "date-fns";
 
