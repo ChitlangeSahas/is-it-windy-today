@@ -71,7 +71,7 @@ const ForecastMainTile = (props: ForecastMainTileProps) => {
 
             <div>
                 {oneDayWindTrendData.slice(0, 11).map((trend: any) => {
-                    return <div style={{display: 'inline-flex', flexDirection: 'column', alignItems: 'center'}}>
+                    return <div style={{display: 'inline-flex', flexDirection: 'column', alignItems: 'center'}} key={trend.name}>
                         <CompassDirection direction={trend.windDirection}/>
                         <Typography color={"info"}>{trend.windSpeed}</Typography>
                     </div>
@@ -84,8 +84,8 @@ const ForecastMainTile = (props: ForecastMainTileProps) => {
                     more</Link>}
             {displayTwentyFourHourWind &&
                 <div>
-                    {oneDayWindTrendData.slice(0, 11).map((trend: any) => {
-                        return <div style={{display: 'inline-flex', flexDirection: 'column', alignItems: 'center'}}>
+                    {oneDayWindTrendData.slice(12, 23).map((trend: any) => {
+                        return <div style={{display: 'inline-flex', flexDirection: 'column', alignItems: 'center'}} key={trend.name}>
                             <CompassDirection direction={trend.windDirection}/>
                             <Typography color={"info"}>{trend.windSpeed}</Typography>
                         </div>

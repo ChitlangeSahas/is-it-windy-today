@@ -61,7 +61,7 @@ export default function App() {
             <Box sx={{display: 'flex',flexDirection: 'column', alignItems: 'center', alignContent: 'center', height: '100vh'}}>
                 <div className={"container"}>
                     <div className="back-button" >
-                        <IconButton onClick={decrementHour} variant={"solid"}><ArrowBackIcon/></IconButton>
+                        <IconButton onClick={decrementHour} variant={"solid"} disabled={hourToDisplay === 0}><ArrowBackIcon/></IconButton>
                     </div>
                     {dataHasLoaded && <ForecastMainTile forecast={forecastByHour[hourToDisplay]} oneDayTempTrendData={getTemperatureTrendData()} oneDayWindTrendData={getWindTrendData()}/>}
 
