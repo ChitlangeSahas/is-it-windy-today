@@ -1,0 +1,15 @@
+.back-button {
+    margin-top: 15%;
+    margin-right: -10px;
+    z-index: 9999;
+}
+
+.forward-button {
+    margin-top: 15%;
+    margin-left: -10px;
+}
+
+.container {
+    display: flex;
+    margin-top: 3em;
+}
