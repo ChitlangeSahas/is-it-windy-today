@@ -56,6 +56,10 @@ export default function App() {
     });
   };
 
+  const resetViewToCurrentHour = () => {
+    setHourToDisplay(0);
+  };
+
   return (
     <CssVarsProvider>
       <Box
@@ -82,10 +86,15 @@ export default function App() {
               forecast={forecastByHour[hourToDisplay]}
               oneDayTempTrendData={getTemperatureTrendData()}
               oneDayWindTrendData={getWindTrendData()}
+              onReset={resetViewToCurrentHour}
             />
 
             <div className="forward-button">
-              <IconButton onClick={incrementHour} variant={"solid"} disabled={hourToDisplay > 23}>
+              <IconButton
+                onClick={incrementHour}
+                variant={"solid"}
+                disabled={hourToDisplay > 23}
+              >
                 <ArrowForwardIcon />
               </IconButton>
             </div>

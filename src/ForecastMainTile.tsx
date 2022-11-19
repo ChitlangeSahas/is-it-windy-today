@@ -1,10 +1,10 @@
 import { Forecast } from "./Types";
 import React, { useState } from "react";
-import { Card, Divider, Link } from "@mui/joy";
+import { Button, Card, Divider, Link } from "@mui/joy";
 import Typography from "@mui/joy/Typography";
 import CompassDirection from "./CompassDirection";
 import { Direction } from "./Types";
-import {formatRelative} from 'date-fns'
+import { formatRelative } from "date-fns";
 import {
   CartesianGrid,
   Legend,
@@ -20,24 +20,30 @@ type ForecastMainTileProps = {
   forecast: Forecast;
   oneDayTempTrendData: any;
   oneDayWindTrendData: any;
+  onReset: () => void;
 };
 
 const ForecastMainTile = (props: ForecastMainTileProps) => {
-  const { forecast, oneDayWindTrendData, oneDayTempTrendData } = props;
+  const { forecast, oneDayWindTrendData, oneDayTempTrendData, onReset } = props;
   const [displayTwentyFourHourWind, setDisplayTwentyFourHourWind] =
     useState(false);
 
   const deltaTemperatureForCurrentView =
     oneDayTempTrendData[forecast.number - 1].delta;
 
-  const relativeTimeString = formatRelative(new Date(forecast.startTime), new Date())
+  const relativeTimeString = formatRelative(
+    new Date(forecast.startTime),
+    new Date()
+  );
   return (
     <>
       <Card variant={"outlined"}>
         <div style={{ display: "flex", justifyContent: "space-between" }}>
           <div>
             <Typography fontSize={"lg"} fontWeight={"bold"}>
-              {`${relativeTimeString.charAt(0).toUpperCase()}${relativeTimeString.slice(1)}` }
+              {`${relativeTimeString
+                .charAt(0)
+                .toUpperCase()}${relativeTimeString.slice(1)}`}
             </Typography>
             <Typography fontSize="medium">{forecast.shortForecast}</Typography>
           </div>
@@ -90,7 +96,17 @@ const ForecastMainTile = (props: ForecastMainTileProps) => {
           <Typography level="h4">{forecast.windSpeed}</Typography>
         </div>
 
-        <Divider sx={{ mt: 6 }} />
+        {forecast.number - 1 !== 0 && (
+          <Button
+            variant={"outlined"}
+            sx={{ width: "fit-content", alignSelf: "flex-end", mb: -5 }}
+            onClick={onReset}
+          >
+            Reset
+          </Button>
+        )}
+
+        <Divider sx={{ mt: 7 }} />
 
         <Typography sx={{ mt: 3 }} fontSize={"lg"}>
           Wind trend ({displayTwentyFourHourWind ? "24h" : "12h"})
