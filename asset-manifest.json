@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/is-it-windy-today/static/css/main.16f5e11e.css",
+    "main.js": "/is-it-windy-today/static/js/main.b1bd8dfe.js",
+    "static/js/787.4cadfe50.chunk.js": "/is-it-windy-today/static/js/787.4cadfe50.chunk.js",
+    "index.html": "/is-it-windy-today/index.html",
+    "main.16f5e11e.css.map": "/is-it-windy-today/static/css/main.16f5e11e.css.map",
+    "main.b1bd8dfe.js.map": "/is-it-windy-today/static/js/main.b1bd8dfe.js.map",
+    "787.4cadfe50.chunk.js.map": "/is-it-windy-today/static/js/787.4cadfe50.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.16f5e11e.css",
+    "static/js/main.b1bd8dfe.js"
+  ]
+}
