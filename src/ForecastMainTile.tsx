@@ -1,4 +1,4 @@
-import {Forecast} from "./App";
+import {Forecast} from "./Types";
 import React, {useState} from "react";
 import {Card, Divider, Link} from "@mui/joy";
 import Typography from "@mui/joy/Typography";
@@ -34,7 +34,9 @@ const ForecastMainTile = (props: ForecastMainTileProps) => {
                         {deltaTemperatureForCurrentView !== 0 &&
                             <div style={{display: 'inline-flex', flexDirection: 'column', alignItems: 'center'}}>
                                 <Typography fontSize={"medium"}
-                                            color={deltaTemperatureForCurrentView > 0 ? 'success' : 'danger'}><span>{deltaTemperatureForCurrentView > 0 ? `+${deltaTemperatureForCurrentView}` : deltaTemperatureForCurrentView}</span></Typography>
+                                            color={deltaTemperatureForCurrentView > 0 ? 'success' : 'danger'}>
+                                    <span>{deltaTemperatureForCurrentView > 0 ? `+${deltaTemperatureForCurrentView}` : deltaTemperatureForCurrentView}</span>
+                                </Typography>
                             </div>}
                     </Typography>
 

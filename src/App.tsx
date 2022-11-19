@@ -7,17 +7,7 @@ import ForecastMainTile from "./ForecastMainTile";
 import {IconButton} from "@mui/joy";
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-
-export type Forecast = {
-    shortForecast: string
-    number: number
-    temperature: number
-    temperatureUnit: string
-    windSpeed: string
-    windDirection: string
-    startTime: string
-    icon: string
-}
+import {Forecast} from "./Types";
 
 export default function App() {
 
