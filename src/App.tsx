@@ -31,13 +31,12 @@ export default function App() {
     setHourToDisplay(hourToDisplay + 1);
   };
   const decrementHour = () => {
-    if (hourToDisplay < 1) return;
     setHourToDisplay(hourToDisplay - 1);
   };
 
   const getTemperatureTrendData = () => {
     // Probably best to not tie data structure to the chart needs, but it's okay for now :)
-    return forecastByHour.slice(0, 23).map((forecast, index, self) => {
+    return forecastByHour.slice(0, 25).map((forecast, index, self) => {
       return {
         name: `${forecast.number}h`,
         temp: forecast.temperature,
@@ -57,6 +56,7 @@ export default function App() {
     });
   };
 
+  console.log(hourToDisplay)
   return (
     <CssVarsProvider>
       <Box
@@ -86,7 +86,7 @@ export default function App() {
             />
 
             <div className="forward-button">
-              <IconButton onClick={incrementHour} variant={"solid"}>
+              <IconButton onClick={incrementHour} variant={"solid"} disabled={hourToDisplay > 23}>
                 <ArrowForwardIcon />
               </IconButton>
             </div>

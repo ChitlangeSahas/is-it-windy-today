@@ -4,6 +4,7 @@ import { Card, Divider, Link } from "@mui/joy";
 import Typography from "@mui/joy/Typography";
 import CompassDirection from "./CompassDirection";
 import { Direction } from "./Types";
+import {formatRelative} from 'date-fns'
 import {
   CartesianGrid,
   Legend,
@@ -28,13 +29,15 @@ const ForecastMainTile = (props: ForecastMainTileProps) => {
 
   const deltaTemperatureForCurrentView =
     oneDayTempTrendData[forecast.number - 1].delta;
+
+  const relativeTimeString = formatRelative(new Date(forecast.startTime), new Date())
   return (
     <>
       <Card variant={"outlined"}>
         <div style={{ display: "flex", justifyContent: "space-between" }}>
           <div>
             <Typography fontSize={"lg"} fontWeight={"bold"}>
-              {new Date(forecast.startTime).toLocaleString()}
+              {`${relativeTimeString.charAt(0).toUpperCase()}${relativeTimeString.slice(1)}` }
             </Typography>
             <Typography fontSize="medium">{forecast.shortForecast}</Typography>
           </div>
@@ -94,7 +97,7 @@ const ForecastMainTile = (props: ForecastMainTileProps) => {
         </Typography>
 
         <div>
-          {oneDayWindTrendData.slice(0, 11).map((trend: any) => {
+          {oneDayWindTrendData.slice(0, 12).map((trend: any) => {
             return <WindDirectionTile trend={trend} key={trend.name} />;
           })}
         </div>
@@ -109,7 +112,7 @@ const ForecastMainTile = (props: ForecastMainTileProps) => {
         )}
         {displayTwentyFourHourWind && (
           <div>
-            {oneDayWindTrendData.slice(12, 23).map((trend: any) => {
+            {oneDayWindTrendData.slice(13, 25).map((trend: any) => {
               return <WindDirectionTile trend={trend} key={trend.name} />;
             })}
           </div>
@@ -120,7 +123,7 @@ const ForecastMainTile = (props: ForecastMainTileProps) => {
         </Typography>
 
         <LineChart
-          width={780}
+          width={850}
           height={200}
           data={props.oneDayTempTrendData}
           margin={{
