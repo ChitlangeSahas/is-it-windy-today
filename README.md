@@ -11,6 +11,7 @@ Some details of the project :)
 
 This is the overall birds eye view of component structure of the App. The following considerations were made while thinking of  
 
+<img width="1107" alt="Screenshot 2022-11-19 at 5 10 57 PM" src="https://user-images.githubusercontent.com/18511823/202876554-87f2bde2-3a20-43a4-be3a-be1c2228756a.png">
 
 - When repeating patterns were spotted, e.g the `CompassDirection` was used in the main tile, as well as the in the Wind Trends (12/24h) row, I turned them into components.
 - I tried my best to delegate specific tasks to each component, this makes them more modular and hence re-usable across the project. 
