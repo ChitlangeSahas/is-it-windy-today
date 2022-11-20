@@ -1,5 +1,6 @@
 # Is it windy today?
 
+Check it out for yourself! https://chitlangesahas.github.io/is-it-windy-today/
 
 ![Nov-19-2022 17-26-27](https://user-images.githubusercontent.com/18511823/202876936-902c75f0-769d-465b-9f76-83047af69cf6.gif)
 
