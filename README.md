@@ -36,3 +36,8 @@ This is the overall birds eye view of component structure of the App. The follow
 - Performance as noted above.
 - Take custom location input. (Currently it's hard coded to Tyson's Square, VA)
 - Use more graphics/icons to show the `shortPrediction`, eg. Icons for "Sunny", Cloudy etc weather predictions.
+
+
+<p align="center">
+<img src="https://media.tenor.com/7PZFTYGYFxQAAAAC/just-a-bit-windy-windy.gif" alt="animated" />
+</p
