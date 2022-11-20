@@ -1,11 +1,12 @@
 # Is it windy today?
 
-<img width="1536" alt="Screenshot 2022-11-19 at 4 28 12 PM" src="https://user-images.githubusercontent.com/18511823/202875583-d8fce72f-8b21-4901-b2ed-3aa94bc277c0.png">
+
+![Nov-19-2022 17-26-27](https://user-images.githubusercontent.com/18511823/202876936-902c75f0-769d-465b-9f76-83047af69cf6.gif)
 
 
 A weather app to get a glance of the state of Wind and Temperature over 24 hours. (configured to Tyson's Corner, VA)
 
-Some details of the project :)
+Some details of the project:
 
 ## Component Structure
 
